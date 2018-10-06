@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <!-- Material Design Lite -->
+    <script src="/material.min.js"></script>
+    <link rel="stylesheet" href="/material.min.css">
+    <!-- Material Design icon font -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+  </head>
+  <body>
+<% @quiz.each do |q| %>
+  <style>
+    body {
+      background: #fafafa;
+    }
+    .card-wide.mdl-card {
+      width: 80%;
+      margin: 10px auto;
+    }
+    .card-wide > .mdl-card__title {
+      color: #fff;
+      height: 350px;
+      background: url(" <%= q.quiz_img_path %> ") center / cover;
+    }
+    .card-wide > .mdl-card__menu {
+      color: #fff;
+    }
+    .mdl-card__supporting-text {
+      font-size: 20px;
+      color: rgb(43, 43, 43)
+    }
+    .mdl-button{
+      height: 45px;
+      font-size: 22pt;
+      line-height: 45px;
+    }
+  </style>
+
+  <div class="mdl-card mdl-shadow--2dp card-wide">
+    <div class="mdl-card__title">
+      <h2 class="mdl-card__title-text">題<%= q.quiz_num %>問</h2></div>
+      <h1 class="mdl-card__supporting-text" style="text-align: center;font-size:2.3rem;line-height:2.5rem;"><%= q.quiz_txt %></h1>
+<% end %>
+      <h3 class="mdl-grid" style="margin: 0 0;">
+        <% @choices.each do |choice| %>
+          <%= link_to choice.choice_txt, {:controller => 'quizzes', :action => 'judge', :id => choice.id, :tag => @participant[:tag]} , { :class => 'mdl-cell mdl-cell--6-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect' } %>
+        <% end %>
+      </h3>
+  </div>
+</body>
+</html>

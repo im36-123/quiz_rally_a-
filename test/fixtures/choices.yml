@@ -1,0 +1,49 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+1_1:
+  id: 1
+  quiz_id: 1
+  choice_txt: 山岸先生
+  correct_flag: 1
+
+1_2:
+  id: 2
+  quiz_id: 1
+  choice_txt: 三四郎
+  correct_flag: 0
+
+1_3:
+  id: 3
+  quiz_id: 1
+  choice_txt: 三島くん
+  correct_flag: 0
+
+1_4:
+  id: 4
+  quiz_id: 1
+  choice_txt: 塚原
+  correct_flag: 0
+
+2_1:
+  id: 5
+  quiz_id: 2
+  choice_txt: てらにし
+  correct_flag: 0
+
+2_2:
+  id: 6
+  quiz_id: 2
+  choice_txt: 町田
+  correct_flag: 1
+
+2_3:
+  id: 7
+  quiz_id: 2
+  choice_txt: ほり
+  correct_flag: 0
+
+2_4:
+  id: 8
+  quiz_id: 2
+  choice_txt: なおきさん
+  correct_flag: 0

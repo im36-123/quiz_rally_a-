@@ -1,0 +1,83 @@
+# coding: utf-8
+class QuizzesController < ApplicationController
+  def index
+    # 普通にviwe追加すればいいよ
+    # Controllerにアクションの追加と
+    # routes.erbにルートの追加忘れずに
+    # redirect_to "http://www.rubyonrails.org"
+    @test = Participant.where(count: 1, cp_one: nil)
+  end
+
+  def show
+    @participant = Participant.find_by(:tag=> params[:tag])
+    @quiz_id = params['id']
+    # case @participant.count
+    # when 0 then
+    #   @quiz = Quiz.where(count: 0, quiz_num: @quiz_id)
+    # end
+    # when 1 then
+    #   @quiz = Quiz.where(count: 1, quiz_num: @quiz_id)
+    # end
+    if @participant.count > 3
+        @participant.count = @participant.count % 3
+    end
+    @quiz = Quiz.where(count: @participant.count, quiz_num: @quiz_id)
+    @choices = Choice.where(quiz_id: @quiz_id)
+    @ans = Answer.find_by(:id=> params['id'])
+    # @quiz = Quiz.find_by(:quiz_num=> params['id'])
+    # @choice = Choice.find_by(:id=> params['id'])
+    # @ans_id = params['id']
+    # @ans = Answer.where(id: @ans_id)
+  end
+
+  def judge
+    # redirect_to :back
+    # render text: 'testtest' + params[:id]
+
+    @choice = Choice.find_by(:id=> params['id'])
+    logger.debug("@choice: #{@choice}")
+      # FIXME 比較はBoolean型にしたほうがいい？
+    @participant = Participant.find_by(:tag => params['tag'])
+
+    case @choice.quiz_id
+      when 1 then
+        @participant.cp_one = @choice.id
+        @participant.save
+      when 2 then
+        @participant.cp_two = @choice.id
+        @participant.save
+      when 3 then
+        @participant.cp_tree = @choice.id
+        @participant.save
+      when 4 then
+        @participant.cp_four = @choice.id
+        @participant.save
+      when 5 then
+        @participant.cp_five = @choice.id
+        @participant.save
+    end
+
+    if @choice.correct_flag == 1
+        redirect_to action: :correct,
+        :id => @choice['quiz_id']
+    elsif @choice.correct_flag == 0
+        redirect_to action: :incorrect,
+        :id => @choice['quiz_id']
+    end
+      # @answer.correct_flag == 1 ? (redirect_to action: :correct) : (redirect_to action: :incorrect)
+  end
+
+  def correct
+    #TODO DBに人数記録
+    #google Analyticsでも何とかなりそう
+    #event controllerみる
+  end
+
+  def incorrect
+    #TODO DBに人数記録
+
+    @answer = Answer.where(quize_id: params['id'])
+    @exp = Answer.find_by(:id=> params['id'])
+
+  end
+end

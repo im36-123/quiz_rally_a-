@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <!-- Material Design Lite -->
+    <script src="/material.min.js"></script>
+    <link rel="stylesheet" href="/material.min.css">
+    <!-- Material Design icon font -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+  </head>
+  <body>
+
+  <style>
+  body {
+    background: #fafafa;
+  }
+  table{
+    width: 80%;
+    margin: 0 auto;
+  }
+  </style>
+<h1>Participants#new</h1>
+<p>Find me in app/views/participants/new.html.erb</p>
+<h1 style="text-align: center;"><%= @participant[:tag] %>を登録しました。</h1>
+<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th class="mdl-data-table__cell--non-numeric">tag</th>
+      <th>何週目</th>
+      <th>チェックポイント 1</th>
+      <th>チェックポイント 2</th>
+      <th>チェックポイント 3</th>
+      <th>チェックポイント 4</th>
+      <th>チェックポイント 5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @participants.each do |participant| %>
+    <tr>
+      <td><%= participant.id %></td>
+      <td class="mdl-data-table__cell--non-numeric"><%= participant.tag %></td>
+      <td><%= participant.count %></td>
+      <td><%= participant.cp_one %></td>
+      <td><%= participant.cp_two %></td>
+      <td><%= participant.cp_three %></td>
+      <td><%= participant.cp_four %></td>
+      <td><%= participant.cp_five %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

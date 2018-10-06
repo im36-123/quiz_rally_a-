@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <!-- Material Design Lite -->
+    <script src="/material.min.js"></script>
+    <link rel="stylesheet" href="/material.min.css">
+    <!-- Material Design icon font -->
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> -->
+  </head>
+  <body>
+
+  <style>
+  body {
+    background: #fafafa;
+  }
+  table{
+    width: 80%;
+    margin: 0 auto;
+  }
+  </style>
+    <p>Phones#index</p>
+    <p>Find me in app/views/phones/index.html.erb</p>
+    <h1 style="text-align: center;">端末一覧</h1>
+
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th>id</th>
+          <th class="mdl-data-table__cell--non-numeric">identification</th>
+          <th>quiz_id(チェックポイント)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @phones.each do |phone| %>
+        <tr>
+          <td><%= phone.id %></td>
+          <td class="mdl-data-table__cell--non-numeric"><%= phone.identification %></td>
+          <td><%= phone.quiz_id %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

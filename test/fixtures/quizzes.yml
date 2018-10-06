@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  quiz_num: 1
+  quiz_txt: 株式会社CirKitの社長は誰でしょう
+
+two:
+  id: 2
+  quiz_num: 2
+  quiz_txt: 山岸研究室のゼミ生で自転車が好きなのは
+
+three:
+  id: 3
+  quiz_num: 3
+  quiz_txt: 3問目のクイズです。テキスト

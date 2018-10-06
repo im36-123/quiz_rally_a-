@@ -1,0 +1,8 @@
+<h1>Participants#show</h1>
+<p>Find me in app/views/participants/show.html.erb</p>
+<p>You can see goaled participants</p>
+<% @goaled_participants.each do |participant| %>
+	<p> tag : <%= participant.participant %></p>
+	<p> time : <%= participant.time %></p>
+	<hr>
+<% end %>

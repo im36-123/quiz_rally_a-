@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  choice_id: 1
+  explanation: 株式会社CirKitの前身であるCirKitプロジェクトの顧問だった山岸先生が社長になりました。   
+
+two:
+  id: 2
+  choice_id: 6
+  explanation: 町田くんです。
